@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sorting Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Sorting, watched</h1>
+    <p>Pick an algorithm and step through what it actually does to an array — every comparison and every swap, one bar at a time.</p>
+  </header>
+
+  <div class="stage">
+    <div class="bars" id="bars"></div>
+    <div class="legend">
+      <span><i class="dot" style="background:var(--bar-default)"></i>unsorted</span>
+      <span><i class="dot" style="background:var(--bar-compare)"></i>comparing</span>
+      <span><i class="dot" style="background:var(--bar-swap)"></i>swapping</span>
+      <span><i class="dot" style="background:var(--bar-pivot)"></i>pivot</span>
+      <span><i class="dot" style="background:var(--bar-sorted)"></i>sorted</span>
+    </div>
+  </div>
+
+  <div class="controls">
+    <div class="field">
+      <label>ALGORITHM</label>
+      <select id="algo">
+        <option value="bubble">Bubble Sort</option>
+        <option value="selection">Selection Sort</option>
+        <option value="insertion">Insertion Sort</option>
+        <option value="merge">Merge Sort</option>
+        <option value="quick">Quick Sort</option>
+      </select>
+    </div>
+    <div class="field">
+      <label>ARRAY SIZE</label>
+      <div class="range-row">
+        <input type="range" id="size" min="8" max="100" value="45">
+        <output id="sizeOut">45</output>
+      </div>
+    </div>
+    <div class="field">
+      <label>SPEED</label>
+      <div class="range-row">
+        <input type="range" id="speed" min="1" max="100" value="60">
+        <output id="speedOut">60</output>
+      </div>
+    </div>
+    <div class="field">
+      <label>STATUS</label>
+      <div id="status" style="font-family:'IBM Plex Mono',monospace; font-size: 13px; color: var(--muted); padding-top: 6px;">idle</div>
+    </div>
+    <div class="buttons">
+      <button class="primary" id="playBtn">Sort</button>
+      <button id="pauseBtn" disabled>Pause</button>
+      <button id="shuffleBtn">New array</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num" id="statCompares">0</div><div class="label">COMPARISONS</div></div>
+    <div class="stat"><div class="num" id="statSwaps">0</div><div class="label">SWAPS / WRITES</div></div>
+    <div class="stat"><div class="num" id="statSteps">0</div><div class="label">STEPS TAKEN</div></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
