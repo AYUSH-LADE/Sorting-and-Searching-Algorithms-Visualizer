@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sorting &amp; Searching Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Sorting &amp; Searching , Visualizer </h1>
+    <p>Type in your own array, pick an algorithm and step through what it actually does — every comparison, swap and jump, one bar at a time.</p>
+  </header>
+
+  <div class="stage">
+    <div class="bars" id="bars"></div>
+    <div class="hash" id="hashTable" hidden></div>
+    <div class="legend" id="legend"></div>
+  </div>
+
+  <div class="controls">
+    <div class="field full">
+      <label>MODE</label>
+      <div class="tabs">
+        <button class="tab active" id="tabSort" data-mode="sort">Sorting</button>
+        <button class="tab" id="tabSearch" data-mode="search">Searching</button>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>ALGORITHM</label>
+      <select id="algo"></select>
+    </div>
+    <div class="field">
+      <label>SPEED</label>
+      <div class="range-row">
+        <input type="range" id="speed" min="1" max="100" value="60">
+        <output id="speedOut">60</output>
+      </div> 
+    </div>
+
+    <div class="field full">
+      <label>YOUR ARRAY <span class="hint">(numbers separated by commas or spaces, 2–100 values)</span></label>
+      <div class="input-row">
+        <input type="text" id="arrayInput" placeholder="e.g. 34, 7, 23, 32, 5, 62" autocomplete="off" spellcheck="false">
+        <button id="useArrayBtn">Use array</button>
+      </div>
+      <div class="error" id="arrayError"></div>
+    </div>
+
+    <div class="field" id="targetField" hidden>
+      <label>TARGET VALUE</label>
+      <input type="number" id="targetInput" placeholder="value to find" step="any">
+      <div class="error" id="targetError"></div>
+    </div>
+
+    <div class="field">
+      <label>RANDOM ARRAY SIZE</label>
+      <div class="range-row">
+        <input type="range" id="size" min="8" max="100" value="30">
+        <output id="sizeOut">30</output>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>STATUS</label>
+      <div id="status" class="status">idle</div>
+    </div>
+
+    <div class="buttons">
+      <button class="primary" id="playBtn">Sort</button>
+      <button id="pauseBtn" disabled>Pause</button>
+      <button id="shuffleBtn">Random array</button>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><div class="num" id="statCompares">0</div><div class="label">COMPARISONS</div></div>
+    <div class="stat"><div class="num" id="statSwaps">0</div><div class="label">SWAPS / WRITES</div></div>
+    <div class="stat"><div class="num" id="statSteps">0</div><div class="label">STEPS TAKEN</div></div>
+    <div class="stat" id="resultStat" hidden><div class="num" id="statResult">–</div><div class="label">RESULT (INDEX)</div></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html> 
